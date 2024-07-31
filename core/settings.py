@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'app',
     'restapi',
     'rest_framework',
+    'knox',
+    'users',
 ]
 
 MIDDLEWARE = [
