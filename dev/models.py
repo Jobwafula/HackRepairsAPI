@@ -16,10 +16,11 @@ class ScreenElement(models.Model):
     type = models.CharField(max_length=50)
     name = models.CharField(max_length=100)
     label = models.CharField(max_length=200, blank=True, null=True)
-    x = models.IntegerField()
-    y = models.IntegerField()
+    brand=models.CharField(max_length=200)
+    panel_type=models.CharField(max_length=200)
     width = models.IntegerField()
     height = models.IntegerField()
+    resolution=models.IntegerField()
     created_at = models.DateTimeField(default=now)
     updated_at = models.DateTimeField(default=now)
 
@@ -45,3 +46,15 @@ class UserInteraction(models.Model):
 
     def __str__(self):
         return f"{self.user.username} - {self.screen_element.name} - {self.interaction_type}"
+    
+class order(models.Model):
+    user_id=models.IntegerField()
+    screen_id=models.IntegerField()
+    quantity=models.IntegerField()
+    total_price=models.IntegerField()
+    shipping_address=models.CharField(max_length=200)
+    payment_method=models.IntegerField()
+    order_status=models.CharField(max_length=50)
+    
+    def __str__(self):
+        return f"{self.order.name}"
