@@ -42,7 +42,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     # 'knox',
-    'users',
+    # 'users',
+    'accounts',  
+    'django_rest_passwordreset',
+    # 'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -131,8 +134,22 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-"""
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication', )
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    # Other settings...
 }
-"""
+
+
+# Email Backend Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  
+
+EMAIL_PORT = 587 
+EMAIL_USE_TLS = True  
+EMAIL_HOST = 'smtp.gmail.com'  
+EMAIL_HOST_USER = 'cheborbrighton805@gmail.com' 
+EMAIL_HOST_PASSWORD = 'idsdphrslqfwqrrq' 
+EMAIL_USE_SSL = False

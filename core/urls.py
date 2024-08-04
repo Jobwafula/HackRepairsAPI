@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app.urls', namespace='app')),
-    # path('api/', include('restapi.urls', namespace='restapi')),
-    path('api/', include('users.urls')),
+    # path('api/', include('users.urls')),
+    path('api/', include('accounts.urls')),
+    path('api/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
 ]
