@@ -1,4 +1,4 @@
 db.sqlite3
 restapi/
 templates/
-accounts/
+users/

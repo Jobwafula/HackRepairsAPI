@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-8$zxycmojxmdk9k)*jr=c+4r1xwzegv(65(==xx3%cen38*^$^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1:8000']
 
 
 # Application definition
@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     # 'knox',
     # 'users',
-    'accounts',  
+    # 'accounts',  
     'django_rest_passwordreset',
-    # 'accounts.apps.AccountsConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
