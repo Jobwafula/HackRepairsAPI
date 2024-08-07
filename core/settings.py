@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'admin_app',
     'product_app',
     'user_app',
+    
     'rest_framework',
 ]
 

@@ -45,6 +45,7 @@ class UserPermissionSerializer(serializers.Serializer):
 
     def create(self, data):
         return UserPermission.objects.create(**data)
+    
 
 
 
