@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from dashboard import views as dashboard_views
+from billing_app import views as billviews
 from rest_framework.authtoken.views import obtain_auth_token
 
 router = DefaultRouter()
@@ -25,6 +26,10 @@ router = DefaultRouter()
 router.register(r'products', dashboard_views.ProductViewSet)
 router.register(r'customers', dashboard_views.UserProfileViewSet)
 router.register(r'orders', dashboard_views.OrderViewSet)
+
+router.register(r'billing_addresses', billviews.BillingAddressViewSet)
+router.register(r'invoices', billviews.InvoiceViewSet)
+router.register(r'payments', billviews.PaymentViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
