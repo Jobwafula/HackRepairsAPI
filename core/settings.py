@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'app',
     'restapi',
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
     # 'knox',
     # 'users',
     # 'accounts',  
-    'django_rest_passwordreset',
+    # 'django_rest_passwordreset',
     'accounts.apps.AccountsConfig',
 ]
 
