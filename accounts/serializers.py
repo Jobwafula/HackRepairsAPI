@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, Business
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -22,3 +22,10 @@ class ChangePasswordSerializer(serializers.Serializer):
 
 class ResetPasswordEmailSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
+
+class BusinessSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Business
+        fields = '__all__'
+        
