@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import register_user, user_login, user_logout, change_password, create_business, get_business, update_business, get_business_all
+from .views import register_user, user_login, user_logout, change_password, create_business, get_business, update_business, get_business_all, delete_business
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
     path('businesses/', get_business_all, name='get_business_all'),
     path('businesses/<int:pk>/', get_business, name='get_business'),
     path('businesses/<int:pk>/update/', update_business, name='update_business'),
+    path('businesses/<int:pk>/delete/', delete_business, name='delete_business' ),
 ] 
 

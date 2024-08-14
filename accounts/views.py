@@ -90,23 +90,20 @@ def create_business(request):
     
 
 @api_view(['GET'])
-def get_business(request, pk=None):
+def get_business(request, pk):
     if pk:
         try:
             business = Business.objects.get(pk=pk)
         except Business.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
         serializer = BusinessSerializer(business)
-    else:
-        businesses = Business.objects.all()
-        serializer = BusinessSerializer(businesses, many=True)
         
     return Response(serializer.data)
 
 @api_view(['GET'])
 def get_business_all(request):
-    products = Business.objects.all()
-    serializer = BusinessSerializer(products, many=True)
+    business = Business.objects.all()
+    serializer = BusinessSerializer(business, many=True)
     return Response(serializer.data)
 
 @api_view(['PATCH'])
@@ -122,3 +119,12 @@ def update_business(request, pk):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['DELETE'])
+def delete_business(request, pk):
+    try:
+        business = Business.objects.get(pk=pk)
+    except Business.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    business.delete()
+    return Response(status=status.HTTPP_204_NO_CONTENT)
