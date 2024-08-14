@@ -128,3 +128,4 @@ def delete_business(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
     business.delete()
     return Response(status=status.HTTPP_204_NO_CONTENT)
+
