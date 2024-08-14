@@ -103,6 +103,12 @@ def get_business(request, pk=None):
         
     return Response(serializer.data)
 
+@api_view(['GET'])
+def get_business_all(request):
+    products = Business.objects.all()
+    serializer = BusinessSerializer(products, many=True)
+    return Response(serializer.data)
+
 @api_view(['PATCH'])
 def update_business(request, pk):
     try:

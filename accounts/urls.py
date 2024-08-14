@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import register_user, user_login, user_logout, change_password, create_business, get_business, update_business
+from .views import register_user, user_login, user_logout, change_password, create_business, get_business, update_business, get_business_all
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -20,8 +20,8 @@ urlpatterns = [
     path('password_reset_complete/done/', auth_views.PasswordResetCompleteView.as_view(template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 
 
-    path('businesses/', create_business, name='create_business'),
-    path('api/businesses/', get_business, name='get_businesses'),
+    path('add_businesses/', create_business, name='create_business'),
+    path('businesses/', get_business_all, name='get_business_all'),
     path('businesses/<int:pk>/', get_business, name='get_business'),
     path('businesses/<int:pk>/update/', update_business, name='update_business'),
 ] 
