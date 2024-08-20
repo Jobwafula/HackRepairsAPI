@@ -37,15 +37,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'app',
     'restapi',
     'rest_framework',
-    # 'rest_framework.authtoken',
-    # 'knox',
-    # 'users',
-    # 'accounts',  
-    # 'django_rest_passwordreset',
     'accounts.apps.AccountsConfig',
+
+    
+    'dev',
+    'admin_app',
+    'product_app',
+    'user_app',
+    'dashboard',
+    'billing_app',
+    
+    'rest_framework',
+    'rest_framework.authtoken',
+
 ]
 
 MIDDLEWARE = [
@@ -134,13 +142,16 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ],
-    # Other settings...
+
+    
 }
 
 
