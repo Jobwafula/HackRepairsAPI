@@ -2,5 +2,6 @@ db.sqlite3
 restapi/
 templates/
 users/
+app/
 
 
