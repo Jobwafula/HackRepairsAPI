@@ -1,6 +1,15 @@
 from django.urls import path
-from .views import register_user, user_login, user_logout, change_password, create_business, get_business, update_business, get_business_all, delete_business
+from .views import *
 from django.contrib.auth import views as auth_views
+
+
+urlpatterns = [
+    path('register/', RegisterAPIView.as_view(), name='register'),
+    path('login/', LoginAPIView.as_view(), name='login'),
+    path('logout/', LogoutAPIView.as_view(), name='logout'),
+]
+
+"""
 
 urlpatterns = [
     path('register/', register_user, name='register'),
@@ -26,4 +35,6 @@ urlpatterns = [
     path('businesses/<int:pk>/update/', update_business, name='update_business'),
     path('businesses/<int:pk>/delete/', delete_business, name='delete_business' ),
 ] 
+
+"""
 

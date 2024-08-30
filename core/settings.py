@@ -37,14 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'app',
     'restapi',
     'rest_framework',
-    # 'rest_framework.authtoken',
-    # 'knox',
-    # 'users',
-    # 'accounts',  
-    # 'django_rest_passwordreset',
+    'rest_framework_simplejwt',
     'accounts.apps.AccountsConfig',
 ]
 
@@ -137,10 +134,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    # Other settings...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 
